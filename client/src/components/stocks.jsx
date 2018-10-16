@@ -7,7 +7,8 @@ import ListGroup from './commom/listGroup';
 //use {} because we are dealing w/named exports
 //below is where movie stuf is coming from
 import { getStocks, deleteMovie } from '../services/fakeStockService';
-import { getGenres } from '../services/fakeGenreService';
+import { getSectors } from '../services/fakeSectorService';
+import { sectors } from '../services/fakeSectorService';
 import { paginate } from '../utils/paginate';
 import _ from 'lodash';
 import SearchBox from './searchBox';
@@ -24,11 +25,11 @@ class Stocks extends Component {
      };
 
      async componentDidMount () {
-         const {data} = await getGenres();
-         const genres =[{ _id: "", name: "All Genres"}, ...data()]
+       
+         const sectors =[{ _id: "", name: "All Genres"}, ...sectors]
     
-         const { data: stocks} = await getStocks();
-         this.setState({ stocks, genres });
+        // const { data: stocks} = await getStocks();
+         this.setState({ sectors });
            
 
      }
@@ -121,7 +122,7 @@ class Stocks extends Component {
         const { length:count } = this.state.stocks;
         
 
-        if (count === 0) return <p>There are no stocks in the database.</p>;
+        // if (count === 0) return <p>There are no stocks in the database.</p>;
 
         const { totalCount, data: stocks } = this.getPagedData();
         const { pageSize, currentPage, sortColumn, searchQuery } = this.state;
@@ -130,7 +131,7 @@ class Stocks extends Component {
             <div className="row">
                 <div className="col-3">
                  <ListGroup 
-                    items={this.state.genres} 
+                    items={sectors} 
                     selectedItem={this.state.selectedGenre}
                     onItemSelect={this.handleGenreSelect}  
                     />

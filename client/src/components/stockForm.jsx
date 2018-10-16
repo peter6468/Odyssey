@@ -1,8 +1,8 @@
 import React from 'react';
 import Joi from 'joi-browser';
 import Form from './commom/form';
-import { getStock, saveStock } from '../services/fakeStockService';
-import { getGenres } from '../services/fakeGenreService'; 
+import { getStock, saveStock } from '../services/stockService';
+import { getSectors } from '../services/sectorService'; 
 //import StockForm from './stockForm';
 
 class StockForm extends  Form{
@@ -37,17 +37,26 @@ class StockForm extends  Form{
             .label("Daily Rental Rate")
     };
 
-    componentDidMount() {
-        const genres =getGenres();
-        this.setState({ genres });
+    async populateSectors() {
+        const {data : sectors} =   getSectors();
+        this.setState({ sectors });
+    }
 
-        const stockId = this.props.match.params.id;
-        if (stockId === "new") return;
+    async populateStock() {
+        try {
+            const stockId = this.props.match.params.id;
+            if (stockId === "new") return;
 
-        const stock = getStock(stockId);
-        if (!stock) return this.props.history.replace("/not-found");
-
-        this.setState({ data: this.mapToViewModel(stock) });
+            const {data: stock} = await getStock(stockId);
+            this.setState({ data: this.mapToViewModel(stock) })
+        } catch (ex) {
+            if (ex.response && ex.response.status === 404)
+                this.props.history.replace("/not-found");
+        }
+    }
+    async componentDidMount() {
+        await this.populateSectors();
+        await this.populateStock();
     }
 
     mapToViewModel(stock) {
@@ -60,10 +69,10 @@ class StockForm extends  Form{
         };
     }
   
-    doSubmit = () => {
-    saveStock(this.state.data);
+    doSubmit = async () => {
+        await saveStock(this.state.data);
 
-    this.props.history.push("/stocks");
+        this.props.history.push("/stocks");
 };
 
 //destructure props+wrap the match property

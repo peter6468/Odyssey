@@ -22,6 +22,8 @@ mongoose.connect(
   "mongodb://localhost/nytarticles"
 );
 
+app.get('/sectors')
+
 // Start the API server
 app.listen(PORT, () =>
   console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`)

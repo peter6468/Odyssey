@@ -1,4 +1,4 @@
-export const genres = [
+export const sectors = [
   { _id: "5b21ca3eeb7f6fbccd471818", name: "Communications Services" },
   { _id: "5b21ca3eeb7f6fbccd471814", name: "Consumer Discreationary" },
   { _id: "5b21ca3eeb7f6fbccd471820", name: "Consumer Staples" },
@@ -11,6 +11,6 @@ export const genres = [
   { _id: "5b21ca3eeb7f6fbccd471806", name: "Utilities" }
 ];
 
-export function getGenres() {
-  return genres.filter(g => g);
+export function getSectors() {
+  return sectors.filter(g => g);
 }

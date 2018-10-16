@@ -20,7 +20,7 @@ const NavBar = () => {
       </button>
       <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div className="navbar-nav">
-          <NavLink className="nav-item nav-link" to="/movies">
+          <NavLink className="nav-item nav-link" to="/stocks">
             Stocks <span className="sr-only">(current)</span>
           </NavLink>
           <NavLink className="nav-item nav-link" to="/customers">

@@ -24,12 +24,12 @@ class App extends Component {
       <Switch>
         <Route path="/register" component={RegisterForm} />
         <Route path="/login" component={LoginForm} />
-        <Route path="/movies/:id" component={StockForm} />
+        <Route path="/stocks/:id" component={StockForm} />
         <Route path="/stocks" component={Stocks} />
         <Route path="/customers" component={Customers}></Route>
         <Route path= "/rentals" component={Rentals}></Route>
         <Route path="/not-found" component={NotFound}></Route>
-        <Redirect from="/" exact to="/movies" />
+        <Redirect from="/" exact to="/stocks" />
         <Redirect to="/not-found" />
       </Switch>
       </main>

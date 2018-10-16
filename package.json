@@ -4,7 +4,6 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
     "start:prod": "node server.js",
     "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
@@ -21,6 +20,7 @@
   },
   "dependencies": {
     "axios": "^0.16.2",
+    "cheerio": "^1.0.0-rc.2",
     "express": "^4.16.3",
     "if-env": "^1.0.4",
     "mongoose": "^5.0.17"

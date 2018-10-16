@@ -40,7 +40,7 @@ console.log("\n***********************************\n" +
  
 
 exports.parserforhtml = info => {
-  logPosts();
+  //logPosts();
   let results = [];
   console.log(info.length);
    for (var page in info ) {
@@ -69,8 +69,9 @@ exports.parserforhtml = info => {
 
   }
   
-
+  
   console.log(JSON.stringify(results, null, 2));
 
 };
+logPosts();
 
