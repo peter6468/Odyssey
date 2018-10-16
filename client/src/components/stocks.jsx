@@ -2,13 +2,12 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import StocksTable from './stocksTable';
-import Pagination from './commom/pagination';
 import ListGroup from './commom/listGroup';
+import Pagination from './commom/pagination';
 //use {} because we are dealing w/named exports
 //below is where movie stuf is coming from
-import { getStocks, deleteMovie } from '../services/fakeStockService';
-import { getSectors } from '../services/fakeSectorService';
-import { sectors } from '../services/fakeSectorService';
+import { getStocks, deleteStock } from '../services/stockService';
+import { getSectors } from '../services/sectorService';
 import { paginate } from '../utils/paginate';
 import _ from 'lodash';
 import SearchBox from './searchBox';
@@ -16,20 +15,20 @@ import SearchBox from './searchBox';
 class Stocks extends Component {
     state = { 
         stocks: [],
-        genres: [],
+        sectors: [],
         currentPage: 1,
         pageSize: 4,
         searchQury: "",
-        selectedGenre: null,
+        selectedSector: null,
         sortColumn: { path: 'title', order: 'asc'  }
      };
 
      async componentDidMount () {
-       
-         const sectors =[{ _id: "", name: "All Genres"}, ...sectors]
+         const {data} = await getSectors();
+         const sectors =[{ _id: "", name: "All Sectors"}, ...data()]
     
-        // const { data: stocks} = await getStocks();
-         this.setState({ sectors });
+         const { data: stocks} = await getStocks();
+         this.setState({ stocks, sectors });
            
 
      }
@@ -122,7 +121,7 @@ class Stocks extends Component {
         const { length:count } = this.state.stocks;
         
 
-        // if (count === 0) return <p>There are no stocks in the database.</p>;
+        if (count === 0) return <p>There are no stocks in the database.</p>;
 
         const { totalCount, data: stocks } = this.getPagedData();
         const { pageSize, currentPage, sortColumn, searchQuery } = this.state;
@@ -131,7 +130,7 @@ class Stocks extends Component {
             <div className="row">
                 <div className="col-3">
                  <ListGroup 
-                    items={sectors} 
+                    items={this.state.genres} 
                     selectedItem={this.state.selectedGenre}
                     onItemSelect={this.handleGenreSelect}  
                     />
