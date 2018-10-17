@@ -18,7 +18,7 @@ class Stocks extends Component {
         stocks: [],
         sectors: [],
         currentPage: 1,
-        pageSize: 4,
+        pageSize: 22,
         searchQury: "",
         selectedSector: null,
         sortColumn: { path: 'title', order: 'asc'  }

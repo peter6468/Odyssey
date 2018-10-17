@@ -7,15 +7,15 @@ class StocksTable extends Component {
     columns = [
         {
             path: 'name', 
-            label: 'Nsme', 
+            label: 'Name', 
             //content: stock => <Link to={`/stocks/${stock._id}`}>{stock.title}</Link>
          },
         {path: 'sector', label: 'Sector' },
         {path: 'price', label: 'Price' },
-        {path: 'div'  , label: 'DivYield' },
-        {path: 'dailyRentalRate'  , label: 'DistDate' },
-        {path: 'dailyRentalRate'  , label: 'DecDate' },
-        {path: 'dailyRentalRate'  , label: 'Forward' },
+        {path: 'divYield'  , label: 'DivYield' },
+        {path: 'distDate'  , label: 'DistDate' },
+        {path: 'decDate'  , label: 'DecDate' },
+        {path: 'forward'  , label: '1yr Forward' },
         {
             key : 'like', 
             content: stock => 
