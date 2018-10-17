@@ -6,13 +6,13 @@ import Like from './commom/like';
 class StocksTable extends Component {
     columns = [
         {
-            path: 'title', 
-            label: 'Stocks', 
-            content: stock => <Link to={`/stocks/${stock._id}`}>{stock.title}</Link>
+            path: 'name', 
+            label: 'Nsme', 
+            //content: stock => <Link to={`/stocks/${stock._id}`}>{stock.title}</Link>
          },
-        {path: 'genre.name', label: 'Sector' },
-        {path: 'numberInStock', label: 'Price' },
-        {path: 'dailyRentalRate'  , label: 'DivYield' },
+        {path: 'sector', label: 'Sector' },
+        {path: 'price', label: 'Price' },
+        {path: 'div'  , label: 'DivYield' },
         {path: 'dailyRentalRate'  , label: 'DistDate' },
         {path: 'dailyRentalRate'  , label: 'DecDate' },
         {path: 'dailyRentalRate'  , label: 'Forward' },

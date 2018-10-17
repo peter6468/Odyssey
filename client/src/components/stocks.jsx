@@ -11,6 +11,7 @@ import { getSectors } from '../services/sectorService';
 import { paginate } from '../utils/paginate';
 import _ from 'lodash';
 import SearchBox from './searchBox';
+import stockUtils from '../services/stockUtil';
 
 class Stocks extends Component {
     state = { 
@@ -31,6 +32,14 @@ class Stocks extends Component {
          this.setState({ stocks, sectors });
            
 
+     }
+
+     componentWillMount() {
+         stockUtils.scrape().then(res =>{
+             console.log(res);
+             this.setState({stocks: res.data })
+         })
+        
      }
 
      handleDelete = async stock => {
@@ -73,7 +82,7 @@ class Stocks extends Component {
          //console.log(page);
      };
 
-     handleGenreSelect = genre => {
+     handleSectorSelect = genre => {
          this.setState({ selectedGenre: genre, currentPage: 1 });
      };
      
@@ -130,9 +139,9 @@ class Stocks extends Component {
             <div className="row">
                 <div className="col-3">
                  <ListGroup 
-                    items={this.state.genres} 
-                    selectedItem={this.state.selectedGenre}
-                    onItemSelect={this.handleGenreSelect}  
+                    items={this.state.sectors} 
+                    selectedItem={this.state.selectedSector}
+                    onItemSelect={this.handleSectorSelect}  
                     />
                 </div>
                 <div className="col">

@@ -1,5 +1,5 @@
 import http from'./httpService';
-import {apiUrl} from '../config.json'
+//import {apiUrl} from '../config.json'
 //genres should be sectors
 export function getSectors() {
     //return http.get('http://localhost:3900/api/sector')

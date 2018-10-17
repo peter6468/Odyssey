@@ -1,13 +1,12 @@
-// import http from "./httpService";
-// //why doens it populate
-//  import { apiUrl } from "../config.json";
+//  import http from './httpService';
+//  //mport { apiUrl } from '../config.json';
 
-// const apiEndpoint = apiUrl + "/users";
+//  //const apiEndpoint = apiUrl + '/users';
 
-// export function register(user) {
-//   return http.post(apiEndpoint, {
-//     email: user.username,
-//     password: user.password,
-//     name: user.name
-//   });
-// }
+//  export function register(user) {
+//     return http.post(apiEndpoint, {
+//          email:user.username,
+//          password: user.password,
+//          name: user.name
+//      });
+//  }

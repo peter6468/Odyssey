@@ -19,11 +19,11 @@ const pages = [
 const apiURL = 'https://www.argaam.com/en/company/companypreviousyeardividendfilterresult?companyID=0&year=2017&sectorID=0&argaamsectorIDs=&distBonusSelection=0&orderBy=CashDividend%20desc&';
 
 
-const logPosts = async () => {
+module.exports.logPosts = async (req, res) => {
   try {
     let allpages = pages.map(num => axios(`${apiURL}${num}`));
     let info = await Promise.all(allpages);
-   parserforhtml(info);
+    res.json(parserforhtml(info));
   } catch (error) {
     console.error('Error:', error);
   }
@@ -37,10 +37,9 @@ console.log("\n***********************************\n" +
             "Grabbing every thread name, pr, dyield, ddate" +
             "from argaam" +
             "\n***********************************\n");
- 
-
-exports.parserforhtml = info => {
-  //logPosts();
+            
+  const parserforhtml = info => {
+  //logPosts()
   let results = [];
   console.log(info.length);
    for (var page in info ) {
@@ -69,9 +68,9 @@ exports.parserforhtml = info => {
 
   }
   
-  
-  console.log(JSON.stringify(results, null, 2));
-
+  return results;
 };
-logPosts();
+
+//parserforhtml();
+
 
