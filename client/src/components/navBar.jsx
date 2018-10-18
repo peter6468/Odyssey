@@ -23,8 +23,8 @@ const NavBar = () => {
           <NavLink className="nav-item nav-link" to="/stocks">
             Stocks <span className="sr-only">(current)</span>
           </NavLink>
-          <NavLink className="nav-item nav-link" to="/customers">
-            Customers
+          <NavLink className="nav-item nav-link" to="/news">
+            News
           </NavLink>
           <NavLink className="nav-item nav-link" to="/rentals">
             Rentals

@@ -19,7 +19,7 @@ app.use(routes);
 // Connect to the Mongo DB
 mongoose.connect(
   process.env.MONGODB_URI ||
-  "mongodb://localhost/nytarticles"
+  "mongodb://wolve:goblue88@ds047315.mlab.com:47315/marketinfo"
 );
 
 app.get('/sectors')
@@ -28,3 +28,22 @@ app.get('/sectors')
 app.listen(PORT, () =>
   console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`)
 );
+
+// const express = require("express");
+// const mongoose = require("mongoose");
+// const bodyParser = require("body-parser");
+
+// const app = express();
+
+// app.use(bodyParser.json());
+
+// const db = require('./config/keys').mongoURI;
+
+// mongoose
+//     .connect(db)
+//   .then(() => console.log("MongoDB connected"))
+//   .catch(err => console.log(err));
+
+//   const port =process.env.Port || 3001
+
+//   app.listen(port, () => console.log(`server startedon port ${port}`));
