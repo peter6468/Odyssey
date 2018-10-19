@@ -23,7 +23,7 @@ const logPosts = async () => {
   try {
     let allpages = pages.map(num => axios(`${apiURL}${num}`));
     let info = await Promise.all(allpages);
-   parserforhtml(info);
+   return parserforhtml(info);
   } catch (error) {
     console.error('Error:', error);
   }
@@ -68,8 +68,29 @@ const parserforhtml = info => {
   }
   
 
-  console.log(JSON.stringify(results, null, 2));
+  //console.log(JSON.stringify(results, null, 2));
+  
+  return results.filter(result => result.name && result.price).map(result => {
+    if (result.divYield === "-"){
+      result.divYield = null
+    }
+    
+    if (result.distDate === "-"){
+      result.distDate = null
+    } else {
+      result.distDate = new Date(result.distDate)
+    }
+    
+    if (result.decDate === "-"){
+      result.decDate= null
+    } else {
+      result.decDate = new Date(result.decDate)
+    }
+    return result
+  })
 
 };
 
-logPosts();
+//logPosts();
+
+module.exports.logPosts=logPosts  

@@ -24,15 +24,15 @@ class Stocks extends Component {
         sortColumn: { path: 'title', order: 'asc'  }
      };
 
-     async componentDidMount () {
-         const {data} = await getSectors();
-         const sectors =[{ _id: "", name: "All Sectors"}, ...data()]
+    //  async componentDidMount () {
+    //      const {data} = await getSectors();
+    //     /const sectors =[{ _id: "", name: "All Sectors"}, ...data()]
     
-         const { data: stocks} = await getStocks();
-         this.setState({ stocks, sectors });
+    //      const { data: stocks} = await getStocks();
+    //      this.setState({ stocks, sectors });
            
 
-     }
+    //  }
 
      componentWillMount() {
          stockUtils.scrape().then(res =>{
