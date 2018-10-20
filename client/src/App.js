@@ -1,5 +1,5 @@
 import React, { Component } from 'react'; 
-import { Route, Redirect, Switch } from 'react-router-dom';
+import { Route, Redirect, Switch, Link } from 'react-router-dom';
 import {ToastContainer} from 'react-toastify'
 import Stocks from './components/stocks';
 import StockForm from './components/stockForm';

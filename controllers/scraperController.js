@@ -67,7 +67,7 @@ console.log("\n***********************************\n" +
   });
 
   }
-  
+  console.log(JSON.stringify(results, null, 2));
   return results;
 };
 

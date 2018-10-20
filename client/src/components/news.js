@@ -1,7 +1,17 @@
-  import React from 'react';
+import React, { Component } from 'react';
 
-  const News = () => {
-      return <h1>News</h1>
-  }
-   
-  export default News;
+class News extends Component {
+    state = {  }
+    render() { 
+        return (  
+            <router>
+                
+
+
+
+            </router>
+        );
+    }
+}
+ 
+export default News;

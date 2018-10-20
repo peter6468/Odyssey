@@ -9,6 +9,7 @@ class StocksTable extends Component {
             path: 'name', 
             label: 'Name', 
             //content: stock => <Link to={`/stocks/${stock._id}`}>{stock.title}</Link>
+         
          },
         {path: 'sector', label: 'Sector' },
         {path: 'price', label: 'Price' },

@@ -1,20 +1,46 @@
 const db = require("../models");
 const arete = require("../client/src/utils/arete");
 
+
 // Defining methods for the StockController
 module.exports = {
   findAll: function(req, res) {
-    arete.logPosts().then(stocks => {
-      console.log(stocks);
-      db.Stock.insertMany(stocks)
+    arete.logPosts()
+    .then(stocks => {
+      //console.log(stocks)
+      let updates = stocks.map(stock => (
+        {
+          updateOne: {
+            "filter": { "name": stock.name},
+            "update": stock,
+            "upsert": true
+          }
+        }
+      ));
+      // console.log("******************************************")
+      // console.log(JSON.stringify(updates, null, 2))
+      // console.log("******************************************")
+      db.Stock.bulkWrite(updates)
       .then(() => {
-        console.log('insertMany')
+        console.log('in bulkWrite')
         db.Stock
         .find({})
         //.sort({ date: -1 })
         .then(dbStock => res.json(dbStock))
         .catch(err => res.status(422).json(err));
       })
+
+
+
+      // db.Stock.insertMany(stocks)
+      // .then(() => {
+      //   console.log('insertMany')
+      //   db.Stock
+      //   .find({})
+      //   //.sort({ date: -1 })
+      //   .then(dbStock => res.json(dbStock))
+      //   .catch(err => res.status(422).json(err));
+      // })
   
     })
    

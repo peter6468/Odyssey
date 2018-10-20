@@ -21,7 +21,9 @@ app.use(routes);
 // Connect to the Mongo DB
 mongoose.connect(
   process.env.MONGODB_URI ||
-  "mongodb://wolve:goblue88@ds047315.mlab.com:47315/marketinfo"
+  //"mongodb://pedro:blue6468@ds0137263.mlab.com:37263/marketinfo"
+  'mongodb://pedro:blue6468@ds137263.mlab.com:37263/marketinfo'
+  
 );
 
 // Start the API server

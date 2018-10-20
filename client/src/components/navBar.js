@@ -27,7 +27,7 @@ const NavBar = () => {
             News
           </NavLink>
           <NavLink className="nav-item nav-link" to="/rentals">
-            Rentals
+            Rentals 
           </NavLink>
           <NavLink className="nav-item nav-link" to="/login">
             Login

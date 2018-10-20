@@ -24,14 +24,10 @@ class Stocks extends Component {
         sortColumn: { path: 'title', order: 'asc'  }
      };
 
-    //  async componentDidMount () {
-    //      const {data} = await getSectors();
-    //     /const sectors =[{ _id: "", name: "All Sectors"}, ...data()]
-    
-    //      const { data: stocks} = await getStocks();
-    //      this.setState({ stocks, sectors });
-           
-
+    //  componentDidMount () {
+    //      //const {data} = await getSectors();
+    //     const sectors =[{ _id: "", name: "All Sectors"}, ...getSectors()]
+    //     this.setState({ stocks: getStocks(),sectors});
     //  }
 
      componentWillMount() {
@@ -116,7 +112,7 @@ class Stocks extends Component {
             m.title.toLowerCase().startsWith(searchQuery.toLowerCase())
           );
         else if (selectedGenre && selectedGenre._id)
-          filtered = allStocks.filter(m => m.genre._id === selectedGenre._id);
+          filtered = allStocks.filter(m => m.stock._id === selectedGenre._id);
     
         const sorted = _.orderBy(filtered, [sortColumn.path], [sortColumn.order]);
     
