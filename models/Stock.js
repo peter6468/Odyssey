@@ -7,7 +7,8 @@ const stockSchema = new Schema({
   price: { type: Number, required: true},
   divYield: { type: Number},
   distDate: { type: Date },
-  decDate: { type: Date }
+  decDate: { type: Date },
+  forward: { type: Number}
 })
 
 const Stock = mongoose.model("Stock", stockSchema);

@@ -19,6 +19,16 @@ const pages = [
 const apiURL = 'https://www.argaam.com/en/company/companypreviousyeardividendfilterresult?companyID=0&year=2017&sectorID=0&argaamsectorIDs=&distBonusSelection=0&orderBy=CashDividend%20desc&';
 
 
+const calcforward = (price, divYield) => {
+  const rate = 2.75/100
+
+    if (price && divYield) {
+      return price * (Math.E) ** (rate - (divYield / 100))
+    } else if (price && !divYield) {
+      return price * (Math.E) ** (rate)
+    }
+}
+
 const logPosts = async () => {
   try {
     let allpages = pages.map(num => axios(`${apiURL}${num}`));
@@ -87,8 +97,9 @@ const parserforhtml = info => {
       result.decDate = new Date(result.decDate)
     }
     //console.log(JSON.stringify(result, null, 2));
+    
+    result.forward = calcforward(result.price, result.divYield)
 
-      
 
     return result
     
