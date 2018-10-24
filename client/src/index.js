@@ -20,3 +20,6 @@ document.getElementById('root')
 serviceWorker.unregister()
 
 //Browser adds routing ;
+
+//writes everything to the page
+//line 14 makes the magic happen

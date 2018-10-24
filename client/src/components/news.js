@@ -40,16 +40,14 @@ class News extends Component {
                     </h2>
                     </div>
                 </div>
+                <div><h6>ArabNews and Aljayzeera</h6> <br/> </div>
 
 
-
-
-                
               
                 {
                    this.state.articles ? this.state.articles.map((e, index)=>{
-                        return( <div key={index}> {e.title}, <br/>
-                            {e.link}</div>) 
+                        return( <div key={index}><a href={e.link}><h3>{e.title}</h3></a> <br/>
+                            </div>)
                     
                     })
 

@@ -1,5 +1,5 @@
 const db = require("../models");
-const arete = require("../client/src/utils/arete");
+const arete = require("./arete");
 
 
 // Defining methods for the StockController
