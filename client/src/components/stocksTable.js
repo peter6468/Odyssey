@@ -16,7 +16,8 @@ class StocksTable extends Component {
         {path: 'divYield'  , label: 'DivYield' },
         {path: 'distDate'  , label: 'DistDate' },
         {path: 'decDate'  , label: 'DecDate' },
-        {path: 'forward'  , label: '1yr Forward' },
+        {path: 'forward'  , label: '1yr Forward', 
+            content: stock => stock.forward.toFixed(2)},
         {
             key : 'like', 
             content: stock => 

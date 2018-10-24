@@ -29,6 +29,7 @@ const calcforward = (price, divYield) => {
     }
 }
 
+
 const logPosts = async () => {
   try {
     let allpages = pages.map(num => axios(`${apiURL}${num}`));
