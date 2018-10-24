@@ -1,9 +1,9 @@
-// const router = require("express").Router();
-// const articleController = require("../../controllers/nytController");
+const router = require("express").Router();
+const articlesController = require("../../controllers/articlesController");
 
-// // Matches with "/api/nyt"
-// router
-//   .route("/")
-//   .get(articleController.findAll);
+// Matches with "/api/nyt"
+router
+  .route("/")
+  .get(articlesController.findAll);
 
-// module.exports = router;
+module.exports = router;
