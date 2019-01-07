@@ -50,7 +50,7 @@ console.log("\n***********************************\n" +
     "Grabbing every thread name, pr, dyield, ddate" +
     "from argaam" +
     "\n***********************************\n");
-
+console.log("browns")
 const parserforhtml = info => {
     let results = [];
     console.log(info.length);
@@ -60,8 +60,12 @@ const parserforhtml = info => {
 
         $(".aplusholdBM tr").each(function (i, element) {
             const td = $(element).find("td");
-
-            const name = td.eq(0).text();
+            const firstTd = td.eq(0);
+            if (i === 0) {
+                console.log(firstTd.find("a").html());
+            }
+            const name = firstTd.text();
+            
 
             const price = td.eq(3).text();
             const divYield = td.eq(4).text();

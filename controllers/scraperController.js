@@ -44,10 +44,11 @@ console.log("\n***********************************\n" +
   console.log(info.length);
    for (var page in info ) {
    const $ = cheerio.load(info[page].data);
-   
+  
 
    $(".aplusholdBM tr").each(function(i, element) {
     const td = $(element).find("td");
+    
 
     const name =td.eq(0).text();
 
